@@ -3,7 +3,7 @@ import sys
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    window = DBApp()
+    window = DBapp()
     window.show()
     app.exec_()
 

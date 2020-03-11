@@ -15,6 +15,9 @@ class DataBase:
         df.to_csv(self.data_base_name, index=False, header=True)
 
     def __del__(self):
+        self.data_base.clear()
+
+    def delete(self):
         os.remove(self.data_base_name)
         if os.path.exists(self.data_base_name[:-4]+'(backup).csv'):
             os.remove(self.data_base_name[:-4]+'(backup).csv')
@@ -85,9 +88,9 @@ if __name__ == '__main__':
     db.add_with_phone('84530', 'sar', 'art', '88005553535')
     db.add_without_phone('12345', 'a', 'b')
     db.add_without_phone('12345', 'a', 'a')
-
+    db.data_base.keys()
     db.save_db()
-
+    input()
     db.back_up()
     db.del_by_id('12345')
     db.load_backup()
